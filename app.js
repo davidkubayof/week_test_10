@@ -19,10 +19,3 @@ app.use('/api', routerMessages)
 app.listen(process.env.PORT, () => {
     console.log(`server run on ${process.env.PORT}`);
 })
-import { messagesEncryptD } from './DAL/supabaseDB.massages.js';
-
-await messagesEncryptD({
-    username:"david",
-    message: "attack at dawn",
-    cipherType: "reverse"
-})
