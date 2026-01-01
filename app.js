@@ -1,0 +1,28 @@
+import express from 'express'
+import routerUsers from './routes/users.route.js'
+import routerMessages from './routes/messages.route.js'
+import { config } from "dotenv";
+
+//dotenv
+config()
+
+const app = express();
+app.use(express.json())
+//users
+app.use('/api', routerUsers)
+// messages
+app.use('/api', routerMessages)
+
+// app.use((err, req, res, next) => {
+//     res.status(500).json({ err: err ? err : "reports error" });
+// })
+app.listen(process.env.PORT, () => {
+    console.log(`server run on ${process.env.PORT}`);
+})
+import { messagesEncryptD } from './DAL/supabaseDB.massages.js';
+
+await messagesEncryptD({
+    username:"david",
+    message: "attack at dawn",
+    cipherType: "reverse"
+})
